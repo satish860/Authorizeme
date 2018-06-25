@@ -19,8 +19,8 @@ namespace AuthorizeMe
             services.AddIdentityServer()
                 .AddTestUsers(Config.GetTestUsers())
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddDeveloperSigningCredential();
+                .AddInMemoryClients(Config.GetClients());
+                //.AddDeveloperSigningCredential();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,7 +30,7 @@ namespace AuthorizeMe
             {
                 app.UseDeveloperExceptionPage();
             }
-
+        
             app.UseIdentityServer();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
